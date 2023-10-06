@@ -42,6 +42,7 @@ public class GameBoard implements IGameModel
     public boolean isGameOver()
     {
         //TODO Implement this method
+        //halohalo
         return false;
     }
 
@@ -52,7 +53,8 @@ public class GameBoard implements IGameModel
      */
     public int getWinner()
     {
-        //TODO Implement this method
+
+
         return -1;
     }
 
