@@ -55,7 +55,48 @@ public GameBoard ()
 
     public boolean isGameOver()
     {
-        //TODO Implement this method
+        for(int row = 0; row < 3; row++)
+        {
+            if(board[row][0] == board[row][1] && board[row][1] == board[row][2] && board[row][0] !=0)
+            {
+                return true;
+            }
+        }
+
+        for (int col = 0; col < 3; col++)
+        {
+            if(board[0][col] == board[1][col] && board[1][col] == board[2][col] && board[0][col] !=0)
+            {
+                return true;
+            }
+        }
+
+        if(board[0][0] == board[1][1] && board[1][1] == board[2][2] && board[0][0] != 0)
+        {
+            return true;
+        }
+
+        if (board[0][2] == board[1][1] && board[1][1] == board[2][0] && board[0][2] != 0)
+        {
+            return true;
+        }
+
+        boolean isDraw = true;
+        for(int row = 0; row < 3; row++)
+        {
+            for(int col = 0; col < 3; col++)
+            {
+                if(board[row][col] == 0)
+                {
+                    isDraw = false;
+                    break;
+                }
+            }
+        }
+        if(isDraw == true)
+        {
+            return true;
+        }
         return false;
     }
 
@@ -66,7 +107,32 @@ public GameBoard ()
      */
     public int getWinner()
     {
-        //TODO Implement this method
+        for(int row = 0; row < 3; row++)
+        {
+            if(board[row][0] == board[row][1] && board[row][1] == board[row][2] && board[row][0] !=0)
+            {
+                return board[row][0] - 1;
+            }
+        }
+
+        for (int col = 0; col < 3; col++)
+        {
+            if(board[0][col] == board[1][col] && board[1][col] == board[2][col] && board[0][col] !=0)
+            {
+                return board[0][col] -1;
+            }
+        }
+
+        if(board[0][0] == board[1][1] && board[1][1] == board[2][2] && board[0][0] != 0)
+        {
+            return board[0][0] -1;
+        }
+
+        if (board[0][2] == board[1][1] && board[1][1] == board[2][0] && board[0][2] != 0)
+        {
+            return board[0][2] - 1;
+        }
+
         return -1;
     }
 
