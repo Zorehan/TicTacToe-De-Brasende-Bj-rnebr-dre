@@ -55,6 +55,7 @@ public class GameBoard implements IGameModel
 
     public boolean isGameOver()
     {
+
         for(int row = 0; row < 3; row++)
         {
             if(board[row][0] == board[row][1] && board[row][1] == board[row][2] && board[row][0] !=0)
@@ -97,6 +98,7 @@ public class GameBoard implements IGameModel
         {
             return true;
         }
+
         return false;
     }
 
@@ -107,6 +109,7 @@ public class GameBoard implements IGameModel
      */
     public int getWinner()
     {
+
         for(int row = 0; row < 3; row++)
         {
             if(board[row][0] == board[row][1] && board[row][1] == board[row][2] && board[row][0] !=0)
@@ -133,6 +136,7 @@ public class GameBoard implements IGameModel
             return board[0][2] - 1;
         }
 
+
         return -1;
     }
 
@@ -141,6 +145,7 @@ public class GameBoard implements IGameModel
      */
     public void newGame()
     {
+
 
         for(int row = 0; row < 3; row++)
         {
@@ -152,6 +157,7 @@ public class GameBoard implements IGameModel
                 }
             }
         }
+
     }
 
 }
