@@ -141,7 +141,17 @@ public GameBoard ()
      */
     public void newGame()
     {
-        //TODO Implement this method
+
+        for(int row = 0; row < 3; row++)
+        {
+            for(int col = 0; col < 3; col++)
+            {
+                if (board[row][col] != 0)
+                {
+                board[row][col] = 0;
+                }
+            }
+        }
     }
 
 }
