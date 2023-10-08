@@ -10,8 +10,8 @@ import javafx.scene.control.TextField;
 public class MainMenu
 {
 
- public button btnSinglePlayerButton;
- public button btnMultiplayerButton;
+ public Button btnSinglePlayerButton;
+ public Button btnMultiplayerButton;
 
 
     public void OnMultiplayerClick(ActionEvent actionEvent) {
