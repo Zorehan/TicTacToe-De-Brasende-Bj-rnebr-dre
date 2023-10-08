@@ -41,8 +41,7 @@ public class GameBoard implements IGameModel
 
     public boolean isGameOver()
     {
-        //TODO Implement this method
-        //halohalo
+
         return false;
     }
 
@@ -63,7 +62,7 @@ public class GameBoard implements IGameModel
      */
     public void newGame()
     {
-        //TODO Implement this method
+
     }
 
 }
