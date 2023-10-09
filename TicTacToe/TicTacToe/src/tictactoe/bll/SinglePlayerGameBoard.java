@@ -6,12 +6,12 @@
 package tictactoe.bll;
 
 
-public class GameBoard implements IGameModel
+public class SinglePlayerGameBoard implements IGameModel
 {
     private int currentPlayer = 0;
-    private static int [][] board;
+    private int [][] board;
 
-    public GameBoard ()
+    public SinglePlayerGameBoard()
     {
         board = new int[3][3];
     }
@@ -86,10 +86,6 @@ public class GameBoard implements IGameModel
         return false;
     }
 
-    public static int getCell(int row, int col)
-    {
-        return board[row][col];
-    }
 
     public int getWinner()
     {
@@ -133,7 +129,7 @@ public class GameBoard implements IGameModel
         {
             for(int col = 0; col < 3; col++)
             {
-                    board[row][col] = 0;
+                board[row][col] = 0;
             }
         }
 

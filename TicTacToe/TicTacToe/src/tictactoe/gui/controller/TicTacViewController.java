@@ -6,6 +6,9 @@
 package tictactoe.gui.controller;
 
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -16,6 +19,7 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
 import tictactoe.bll.GameBoard;
 import tictactoe.bll.IGameModel;
+import tictactoe.bll.SinglePlayerGameBoard;
 
 /**
  *
@@ -33,12 +37,21 @@ public class TicTacViewController implements Initializable
     @FXML
     private GridPane gridPane;
     
-    private static final String TXT_PLAYER = "Player: ";
+    private final String TXT_PLAYER = "Player: ";
     private IGameModel game;
+
+    public void main(String[] args)
+    {
+        if(game.getNextPlayer() == 0)
+        {
+            computerTurn();
+        }
+    }
 
     @FXML
     private void handleButtonAction(ActionEvent event)
     {
+
         try
         {
             Integer row = GridPane.getRowIndex((Node) event.getSource());
@@ -56,12 +69,19 @@ public class TicTacViewController implements Initializable
                     String xOrO = player == 0 ? "X" : "O";
                     btn.setText(xOrO);
                 }
+
+
                 else
                 {
                     Button btn = (Button) event.getSource();
                     String xOrO = player == 0 ? "X" : "O";
                     btn.setText(xOrO);
                     setPlayer();
+                    if(game.getNextPlayer() == 1)
+                    {
+                        computerTurn();
+                    }
+
                 }
             }
         } catch (Exception e)
@@ -81,6 +101,7 @@ public class TicTacViewController implements Initializable
     @Override
     public void initialize(URL url, ResourceBundle rb)
     {
+
         game = new GameBoard();
         setPlayer();
     }
@@ -114,4 +135,62 @@ public class TicTacViewController implements Initializable
         }
     }
 
+    private Button getButtonForComputer(int row, int col)
+    {
+        for(Node node : gridPane.getChildren())
+        {
+            if(node instanceof Button)
+            {
+                Button button = (Button) node;
+                Integer rowIndex = GridPane.getRowIndex(button);
+                Integer colIndex = GridPane.getColumnIndex(button);
+
+                if(rowIndex != null && colIndex != null && rowIndex == row && colIndex == col)
+                {
+                    return button;
+                }
+            }
+        }
+        return null;
+    }
+
+    private void computerTurn()
+    {
+        List<Integer> unpressedButtons = new ArrayList<Integer>();
+        for(int row = 0; row < 3; row++)
+        {
+            for(int col = 0; col < 3; col++)
+            {
+                if(GameBoard.getCell(row, col) == 0)
+                {
+                    unpressedButtons.add(row * 3 + col);
+                }
+            }
+        }
+
+        if(!unpressedButtons.isEmpty())
+        {
+            int player = game.getNextPlayer();
+            int randomIndex = new Random().nextInt(unpressedButtons.size());
+            int computerButtonChoice = unpressedButtons.get(randomIndex);
+            int row = computerButtonChoice / 3;
+            int col = computerButtonChoice % 3;
+
+            game.play(col,row);
+
+            Button button = getButtonForComputer(row, col);
+            String xOrO = player == 0 ? "X" : "O";
+            button.setText(xOrO);
+
+            if(game.isGameOver() == true)
+            {
+                int winner = game.getWinner();
+                displayWinner(winner);
+            }
+            else
+            {
+                setPlayer();
+            }
+        }
+    }
 }
