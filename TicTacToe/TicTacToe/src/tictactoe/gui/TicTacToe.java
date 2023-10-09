@@ -11,35 +11,20 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+import java.io.IOException;
+
 /**
  *
  * @author Stegger
  */
-public class TicTacToe extends Application
-{
-  Scene scene1, scene2;
+public class TicTacToe extends Application {
     @Override
-    public void start(Stage stage) throws Exception
-    {
-     
-        
-        Parent root = FXMLLoader.load(getClass().getResource("views/MainMenu.fxml"));
-        Scene MainMenu1 = new Scene(root);
-        stage.setScene(MainMenu1);
-        stage.setResizable(false);
-        stage.setTitle("Tic Tac Toe");
-        stage.centerOnScreen();
+    public void start(Stage primaryStage) throws IOException {
 
-
-        stage.show();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/MainMenu.fxml"));
+        Parent root = loader.load();
+        primaryStage.setScene(new Scene(root));
+        primaryStage.show();
     }
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args)
-    {
-        launch(args);
-    }
-    
 }

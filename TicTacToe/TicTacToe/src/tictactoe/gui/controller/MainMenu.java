@@ -24,15 +24,17 @@ public class MainMenu
 
     public void OnMultiplayerClick(ActionEvent actionEvent) throws IOException {
         gamemode=0;
-        FXMLLoader loader =new FXMLLoader (getClass().getResource("tictactoe/gui/views/TicTacView.fxml"));
-        Parent root = loader.load();
-        Stage stage =new Stage();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/TicTacView.fxml"));
+        Parent SecondSceneRoot = loader.load();
+        Stage SecondStage = new Stage();
+        SecondStage.setTitle("TicTacToe");
+        SecondStage.setScene(new Scene(SecondSceneRoot));
 
-        stage.setScene(new Scene(root));
-        stage.setResizable(false);
-        stage.setTitle("Tic Tac Toe");
-        stage.centerOnScreen();
-        stage.show();
+        SecondStage.show();
+
+        Stage currentStage = (Stage) btnMultiplayerButton.getScene().getWindow();
+
+        SecondStage.setOnHidden(event -> currentStage.close());
     }
 
     public void OnSinglePlayerClick(ActionEvent actionEvent) {
