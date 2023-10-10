@@ -9,7 +9,7 @@ package tictactoe.bll;
 public class GameBoard implements IGameModel
 {
     private int currentPlayer = 0;
-    private int [][] board;
+    private static int [][] board;
 
     public GameBoard ()
     {
@@ -85,6 +85,12 @@ public class GameBoard implements IGameModel
 
         return false;
     }
+
+    public static int getCell(int row, int col)
+    {
+        return board[row][col];
+    }
+
     public int getWinner()
     {
 

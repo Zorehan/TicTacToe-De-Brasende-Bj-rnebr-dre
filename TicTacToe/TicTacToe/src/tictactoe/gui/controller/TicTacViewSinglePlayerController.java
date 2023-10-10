@@ -19,13 +19,12 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
 import tictactoe.bll.GameBoard;
 import tictactoe.bll.IGameModel;
-import tictactoe.bll.SinglePlayerGameBoard;
 
 /**
  *
  * @author Stegger
  */
-public class TicTacViewController implements Initializable
+public class TicTacViewSinglePlayerController implements Initializable
 {
 
     @FXML
