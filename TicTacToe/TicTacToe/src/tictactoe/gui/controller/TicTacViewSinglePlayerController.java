@@ -95,6 +95,10 @@ public class TicTacViewSinglePlayerController implements Initializable
         game.newGame();
         setPlayer();
         clearBoard();
+        if(game.getNextPlayer() == 1)
+        {
+            computerTurn();
+        }
     }
 
     @Override

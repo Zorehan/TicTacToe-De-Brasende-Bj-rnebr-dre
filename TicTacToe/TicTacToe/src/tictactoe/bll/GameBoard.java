@@ -8,7 +8,7 @@ package tictactoe.bll;
 
 public class GameBoard implements IGameModel
 {
-    private int currentPlayer = 0;
+    private static int currentPlayer = 0;
     private static int [][] board;
 
     public GameBoard ()
@@ -37,6 +37,10 @@ public class GameBoard implements IGameModel
         return false;
     }
 
+    public static void setCurrentPlayer (int setPlayerTo)
+    {
+        currentPlayer = setPlayerTo;
+    }
     public boolean isGameOver()
     {
 

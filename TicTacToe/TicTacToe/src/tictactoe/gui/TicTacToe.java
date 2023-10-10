@@ -23,6 +23,7 @@ public class TicTacToe extends Application {
 
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/MainMenu.fxml"));
         Parent root = loader.load();
+        root.getStylesheets().add(getClass().getResource("css/Main.css").toExternalForm());
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
     }

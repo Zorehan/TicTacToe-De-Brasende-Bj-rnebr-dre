@@ -1,15 +1,17 @@
-/*
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
-*/
-/* 
-    Created on : 24-08-2016, 12:36:01
-    Author     : Stegger
-*/
-
+/*Background */
 #pane {
-    -fx-background-image: url(../images/background.jpg);
-    -fx-background-repeat: stretch;   
+    -fx-background-image: url(../images/Background2.jpg);
     -fx-background-position: center;
+    -fx-background-size: cover;
+}
+
+/*Buttons - Fields */
+#btn1,#btn2,#btn3,#btn4,#btn5,#btn6,#btn7,#btn8,#btn9 {
+    -fx-background-color: #FFFFFF;
+    -fx-opacity: 0.6;
+}
+
+/*Player text */
+#lblPlayer{
+    -fx-text-fill: #FFFFFF;
 }
