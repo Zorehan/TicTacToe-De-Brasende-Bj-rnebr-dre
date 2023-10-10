@@ -85,8 +85,6 @@ public class GameBoard implements IGameModel
 
         return false;
     }
-
-
     public int getWinner()
     {
 
@@ -129,7 +127,7 @@ public class GameBoard implements IGameModel
         {
             for(int col = 0; col < 3; col++)
             {
-                    board[row][col] = 0;
+                board[row][col] = 0;
             }
         }
 
