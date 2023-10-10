@@ -5,6 +5,7 @@
  */
 package tictactoe.gui.controller;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
@@ -12,11 +13,15 @@ import java.util.Random;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
+import javafx.stage.Stage;
 import tictactoe.bll.GameBoard;
 import tictactoe.bll.IGameModel;
 
@@ -87,6 +92,17 @@ public class TicTacViewSinglePlayerController implements Initializable
         {
             System.out.println(e.getMessage());
         }
+    }
+    @FXML
+    private void handleMainMenu(ActionEvent event) throws IOException
+    {
+     FXMLLoader loader = new FXMLLoader(getClass().getResource("/MainMenu.fxml"));
+     Parent root = loader.load();
+     Scene mainMenu = new Scene(root);
+     Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+     currentStage.close();
+     currentStage.setScene(mainMenu);
+     currentStage.show();
     }
 
     @FXML
