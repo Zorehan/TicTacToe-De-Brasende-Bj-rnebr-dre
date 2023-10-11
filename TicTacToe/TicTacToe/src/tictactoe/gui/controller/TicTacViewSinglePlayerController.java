@@ -194,7 +194,6 @@ public class TicTacViewSinglePlayerController implements Initializable
             int computerButtonChoice = unpressedButtons.get(randomIndex);
             int row = computerButtonChoice / 3;
             int col = computerButtonChoice % 3;
-            System.out.println("row" + row +"col" + col);
 
             game.play(col,row);
 
